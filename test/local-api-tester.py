@@ -6,7 +6,7 @@ import os
 def invokeNSXTGET(url: str) -> requests.Response:
     myHeader = {"Content-Type": "application/json","Accept": "application/json"}
     try:
-        response = requests.get(url,headers=myHeader, auth=(os.environ['EXP_srcNSXmgrUsername'] , os.environ['EXP_srcNSXmgrPassword']), verify=False)
+        response = requests.get(url,headers=myHeader, auth=(os.environ['EXP_srcNSXmgrUsername'] , os.environ['EXP_srcNSXmgrPassword']), verify=True)
         if response.status_code != 200:
             print(f'API Call Status {response.status_code}, text:{response.text}')
         return response
